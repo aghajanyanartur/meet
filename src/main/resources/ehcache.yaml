@@ -1,0 +1,8 @@
+ehcache:
+  caches:
+    meetCache:
+      maxEntries: 1000
+      timeToLiveSeconds: 3600
+      timeToIdleSeconds: 60
+      heap:
+        size: 10MB
