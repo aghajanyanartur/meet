@@ -27,9 +27,9 @@ public class CommentService {
                 .orElseThrow(() -> new CommentNotFoundException(id));
     }
 
-    public List<Comment> getCommentsByAuthor(User author) {
-        log.info("Getting comments by author: {}", author);
-        return commentRepository.findByAuthor(author);
+    public List<Comment> getCommentsByAuthor(Long authorId) {
+        log.info("Getting comments by author: {}", authorId);
+        return commentRepository.findByAuthorId(authorId);
     }
 
     public List<Comment> getCommentsByPost(Post post) {
