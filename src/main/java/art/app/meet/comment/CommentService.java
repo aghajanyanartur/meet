@@ -1,6 +1,7 @@
 package art.app.meet.comment;
 
 import art.app.meet.post.Post;
+import art.app.meet.post.PostNotFoundException;
 import art.app.meet.user.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -47,8 +48,10 @@ public class CommentService {
         return commentRepository.saveAndFlush(comment);
     }
 
-    public Comment updateComment(Comment comment) {
-        log.info("Updating comment: {}", comment);
+    public Comment updateComment(Long id, Comment comment) {
+        log.info("Updating comment by id: {}, with comment: {}", id, comment);
+        var existingComment = commentRepository.findById(id).orElseThrow(() -> new CommentNotFoundException(id));
+        existingComment.setContent(comment.getContent());
         return commentRepository.saveAndFlush(comment);
     }
 
