@@ -55,7 +55,7 @@ public class PostController {
 
     @PutMapping("/{id}")
     public Post updatePost(@PathVariable Long id, @RequestBody Post post) {
-        log.info("Endpoint updating user by id: {}, with post: {}", id, post);
+        log.info("Endpoint updating post by id: {}, with post: {}", id, post);
         return postService.updatePost(id, post);
     }
 
