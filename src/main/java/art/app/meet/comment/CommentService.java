@@ -32,9 +32,9 @@ public class CommentService {
         return commentRepository.findByAuthorId(authorId);
     }
 
-    public List<Comment> getCommentsByPost(Post post) {
-        log.info("Getting comments by post: {}", post);
-        return commentRepository.findByPost(post);
+    public List<Comment> getCommentsByPost(Long postId) {
+        log.info("Getting comments by post: {}", postId);
+        return commentRepository.findByPostId(postId);
     }
 
     public List<Comment> getCommentsBetween(LocalDateTime start, LocalDateTime end) {
